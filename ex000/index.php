@@ -10,12 +10,13 @@
 <body>
     <H1>
         <?php 
-        
-            echo "ZA WARUDO! \u{1F30E}";
+            $message = "ZA WARUDO! \u{1F30E}";
+            echo $message ;
         ?>
     </H1>
     <P>
         ORA! ORA! ORA! ORA! ORA!
+
     </P>
 
 </body>
