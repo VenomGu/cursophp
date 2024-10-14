@@ -104,7 +104,7 @@
         echo "<br/>";
         echo "The intdiv of 5 and 2 is $formattedToIntdiv";
         echo "<br/>";
-        echo "The module of 5%2 is $formattedToModule"
+        echo "The module of 5%2 is $formattedToModule";
         
         ?>
         <p><a href="javascript:history.go(-1)"><button>Voltar para a página anterior</button></a></p>
