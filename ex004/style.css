@@ -194,7 +194,11 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #45a049;
 }
-
+input[name="add"] {
+  width: 100%;
+  background-color: blue;
+  font-size: 1em;
+}
 input[type="reset"] {
   width: 100%;
   background-color: #eb9903;

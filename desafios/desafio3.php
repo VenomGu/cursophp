@@ -25,6 +25,10 @@
         echo "<br/>";
         $valorEmDolar = 5.22;
         $valorConvertido = $valorEmReais / $valorEmDolar;
+        $valorConvertido = number_format($valorConvertido, 2, ",", ".");
+        //$padrao = numfmt_create('pt_BR', NumberFormatter::CURRENCY);
+        //$valorConvertido = numfmt_format_currency($padrao, $valorConvertido, 'BRL');
+
         echo "Seus <strong>R$ $valorEmReais </strong>equivalem a <strong>US$ $valorConvertido </strong> Dolares";
         echo "<br/>";
         echo "*Cotação fixa de <strong> R$ $valorEmDolar </strong> informada diretamento no código.";
