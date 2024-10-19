@@ -20,32 +20,30 @@
             $inicio = date("m-d-Y" , strtotime("-7 days"));
             $fim = date("m-d-Y");
     if (isset($_GET["reaisDesafio4"])) {
-        $valorEmReaisV2 = (float)$_GET["reaisDesafio4"];
+        $valorEmReaisV2 = $_GET["reaisDesafio4"];
         
         $url = "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?@dataInicial='$inicio'&@dataFinalCotacao='$fim'";
         
         $data = json_decode(file_get_contents($url), true);
         $cotacaoVenda = $data['value'][0]['cotacaoCompra'];
-        $cotacaoVenda = number_format($cotacaoVenda, 4, ",", "."); 
-        $valorEmReaisV2 = $valorEmReaisV2;
         $valorConvertidoV2 = $valorEmReaisV2 / $cotacaoVenda;
-        $valorConvertidoV2 = number_format($valorConvertidoV2, 2, ",", ".");
-        echo "O valor informado foi <strong> R$ $valorEmReaisV2 </strong>";
+        $padrao = numfmt_create('pt_BR', NumberFormatter::CURRENCY);
+        
+        echo "O valor informado foi <strong> R$" . numfmt_format_currency($padrao, $valorEmReaisV2, 'BRL') . "</strong>";
         echo "<br/>";
-        echo "Seus <strong>R$ $valorEmReaisV2 </strong>equivalem a <strong>US$ $valorConvertidoV2 </strong> Dolares";
+        echo "Seus <strong> " . numfmt_format_currency($padrao, $valorEmReaisV2, 'BRL') . " </strong>equivalem a <strong> " . numfmt_format_currency($padrao, $valorConvertidoV2, 'USD') ."</strong> Dolares";
         echo "<br/>";
-        echo "*Cotação obtida diretamente do site do <strong>Banco Central é R$ " . number_format($cotacaoVenda, 2, ",", ".") . "</strong>";
+        echo "*Cotação de dólar em reais hoje e obtida diretamente do site do <strong>Banco Central </strong> é <strong>". numfmt_format_currency($padrao, $cotacaoVenda, 'BRL') ." </strong>";
         echo "<br/>";
         } else {
-        echo "Informe um valor em Reais para realizar a conversão.";
+        echo "Quantos <strong>Reais</strong> você deseja converter? ";
         echo "<br/>";
-        echo "<br/>";
-        echo "*Cotação obtida diretamente do site <strong> do Banco Central. </strong>";
+        echo "*Cotação obtida diretamente do site do <strong> Banco Central. </strong>";
         echo "<br/>";
     }
     ?>
             <form action="desafio4.php" method="get">
-                <input type="text" name="reaisDesafio4" id="idreaisv2" placeholder="Exemplo: 83,60">
+                <input type="number" step="any" name="reaisDesafio4" id="idreaisv2" placeholder="Exemplo: 83,60">
                 <input type="submit" value="Converter" id="idbotaov2">
                 <a href="../desafios">
                     <button type="button">

@@ -18,21 +18,19 @@
             <h1>Conversor de moedas v1.0</h1>
             <?php
 
-    if (isset($_GET["reais"])) {
-
-        $valorEmReais = (float)$_GET["reais"];
-        echo "O valor informado foi <strong>R$ $valorEmReais </strong>";
-        echo "<br/>";
+    if (isset($_GET["reais"]) && $_GET["reais"] > 0) {
+        
+        $valorEmReais = $_GET["reais"];
         $valorEmDolar = 5.22;
         $valorConvertido = $valorEmReais / $valorEmDolar;
-        $valorConvertido = number_format($valorConvertido, 2, ",", ".");
-        //$padrao = numfmt_create('pt_BR', NumberFormatter::CURRENCY);
-        //$valorConvertido = numfmt_format_currency($padrao, $valorConvertido, 'BRL');
-
-        echo "Seus <strong>R$ $valorEmReais </strong>equivalem a <strong>US$ $valorConvertido </strong> Dolares";
+        $padrao = numfmt_create('pt_BR', NumberFormatter::CURRENCY);
+        echo "O valor informado foi <strong>" . numfmt_format_currency($padrao, $valorEmReais, 'BRL') . " </strong>";
+        echo "<br/>";
+        echo "Seus <strong>" . numfmt_format_currency($padrao, $valorEmReais, 'BRL') . "</strong>equivalem a <strong>" . numfmt_format_currency($padrao, $valorConvertido, 'USD') . "</strong> Dolares";
         echo "<br/>";
         echo "*Cotação fixa de <strong> R$ $valorEmDolar </strong> informada diretamento no código.";
-    } else {
+    } 
+else {
         echo "Informe um valor em <strong>Reais</strong> para realizar a conversão.";
         echo "<br/>";
         echo "*Cotação fixa de<strong> R$5,22 </strong> informada diretamento no código.";
