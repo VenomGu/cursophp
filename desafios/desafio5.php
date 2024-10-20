@@ -23,15 +23,15 @@
                 $valorFracionario = $valorEmReaisD5 - $valorInteiro;
                 echo "Analisando o valor <strong> $valorEmReaisD5 </strong>informado pelo usuário...";
                 echo "<br/>";
-                echo "<li>A parte inteira do número é <strong> $valorInteiro</strong>. </li>";
-                echo "<li>A parte fracionária do número é <strong>$valorFracionario</strong> </li>";
+                echo "<li>A parte inteira do número é <strong>". number_format($valorInteiro, 0, ",", ".")."</strong>. </li>";
+                echo "<li>A parte fracionária do número é <strong>". number_format($valorFracionario, 3, ",", ".") ."</strong> </li>";
             } else if ( isset($_GET["reaisD5"]) == 0) {
                 echo "O analisador separa o valor inteiro";
                 echo "<br/> e o fracionário do número informado pelo usuário.";
                 echo "<br/>";
             } else {
                 echo "O valor não pode ser <strong>zero</strong>.";
-            } 
+            }
             
             ?>
             <form action="desafio5.php" method="get">
