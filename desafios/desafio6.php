@@ -10,9 +10,6 @@
 </head>
 
 <body>
-    <?php
-    
-    ?>
     <main>
         <h1>Anatomia de uma Divisão</h1>
         <form action="<?=$_SERVER['PHP_SELF']; ?>" method="get">
