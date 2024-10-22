@@ -90,7 +90,7 @@ table {
 }
 
 table th {
-  background-color: #372991;
+  background-color: #2d9129;
   color: white;
   padding: 5px;
   text-align: left;
@@ -133,7 +133,7 @@ table.divisao tr:nth-child(2) td:nth-child(1) {
 }
 
 ul > li::marker {
-  color: #372991;
+  color: #912929;
 }
 
 /* ELEMENTOS DE FORMULÁRIO */

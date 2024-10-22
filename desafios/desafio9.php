@@ -12,7 +12,7 @@
 <body>
     <main>
         <h1>Médias Aritiméticas</h1>
-        <form action="$_SERVER['PHP_SELF']" method="get">
+        <form action="<?=$_SERVER['PHP_SELF']; ?>" method="get">
             <label for="valor1">1º Valor: </label>
             <input type="number" name="valor1" id="idvalor1">
             <label for="peso1">1º Peso: </label>

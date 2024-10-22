@@ -12,7 +12,7 @@
 <body>
     <main>
         <h1>Reajustador de preços</h1>
-        <form action="$_SERVER['PHP_SELF']" method="get">
+        <form action="<?=$_SERVER['PHP_SELF']; ?>" method="get">
             <label for="reajuste">Preço do Produto (R$):</label>
             <input type="number" name="reajuste" id="idreajuste" value="0">
             <label for="percentual">Qual será o percentual do reajuste? (%)</label>

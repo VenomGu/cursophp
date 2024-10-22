@@ -12,7 +12,7 @@
 <body>
     <main>
         <h1>Calculando a sua idade</h1>
-        <form action="$_SERVER['PHP_SELF']" method="get">
+        <form action="<?=$_SERVER['PHP_SELF']; ?>" method="get">
             <label for="Em que ano você nasceu?"></label>
             <input type="number" name="ano" id="idano" value="0">
             <label for="Quer saber sua idade em que ano? (Atualmente estamos em 2024)"></label>

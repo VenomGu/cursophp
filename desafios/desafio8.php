@@ -19,7 +19,7 @@
         <h2>Descubra a Raiz Quadrada e a Raiz Cúbica</h2>
         <h3>Informe o número</h3>
 
-        <form action="$_SERVER['PHP_SELF']" method="get">
+        <form action="<?=$_SERVER['PHP_SELF']; ?>" method="get">
             <label for="numero">Número:</label>
             <input type="number" name="numero" id="idnumero" value="0" step="any" required>
             <input type="submit" value="Calcular Raízes">

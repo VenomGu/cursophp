@@ -11,18 +11,16 @@
 
 <body>
     <?php
-
-    $dividendo = $_GET["dividendo"];
-    $divisor = $_GET["divisor"];
+    
     ?>
     <main>
         <h1>Anatomia de uma Divisão</h1>
-        <form action="$_SERVER['PHP_SELF']" method="get">
-            <label for="dividendo">Dividendo:</label>
-            <input type="number" name="dividendo" id="iddividendo" value="0" step="any" required>
+        <form action="<?=$_SERVER['PHP_SELF']; ?>" method="get">
+            <label for="divisao">divisao:</label>
+            <input type="number" name="divisao" id="iddivisao" value="<?=$divisao; ?>" step="any" required>
 
             <label for="divisor">Divisor:</label>
-            <input type="number" name="divisor" id="iddivisor" value="0" step="any" required>
+            <input type="number" name="divisor" id="iddivisor" value="<?=$divisor; ?>" step="any" required>
 
             <input type="submit" value="Analisar">
             <a href="../desafios">
@@ -34,22 +32,34 @@
         </form>
 
     </main>
-    <section>
+    <section style="padding: 40px;">
         <h2>Estrutura da Divisão</h2>
         <!-- Desafio, mostrar os valores de
-        1. Dividendo
+        1. divisao
         2. Divisor
         3. Quociente
         4. Resto
 -->
-
-        1 dividendo | 2 divisor
-        <br>
-        ----------- | ---------|
-        <br>
-        ----------- | -----------
-        4 resto | 3 quociente
-
+        <span style="font-size: 2em;">
+            <?php 
+        if ( isset($_REQUEST["divisao"]) && isset($_REQUEST["divisor"])) {
+    $divisao = $_REQUEST["divisao"] ?? 0;
+    $divisor = $_REQUEST["divisor"] ?? 0;
+    $resto = $divisao % $divisor ?? 0;
+    $quociente = $divisao / $divisor ?? 0;
+    echo "<span style='padding-right: 30px; '>" . $divisao . "</span>";
+    echo "<span style='border-left: solid; padding-bottom: 50px; '></span>";
+    echo "<span style='padding-left: 30px; padding-right: 30px; border-bottom: solid;'>" .$divisor . " </span>";
+    
+    echo "<br/>";
+    
+    echo "<span style='text-decoration: underline; padding-right: 80px;'>" . $resto . "</span>";
+    echo "<span>" .$quociente . " </span>";
+    } else {
+        echo "Por favor, informe os valores de divisao e divisor";
+    }
+        ?>
+        </span>
 
     </section>
 

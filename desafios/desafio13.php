@@ -11,7 +11,7 @@
 
 <body>
     <main>
-        <form action="$_SERVER['PHP_SELF']" method="get">
+        <form action="<?=$_SERVER['PHP_SELF']; ?>" method="get">
             <label for="valor"> Qual valor deseja sacar? (R$)*</label>
             <input type="number" name="valor" id="idvalor">
             <!-- Só podem sacar essas notas: R$100, R$50, R$10 e R$5 -->

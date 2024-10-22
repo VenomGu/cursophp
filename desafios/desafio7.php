@@ -20,7 +20,7 @@
 
     <main>
         <h1>Informe o seu salário</h1>
-        <form action="$_SESSION['PHP_SELF']" method="get">
+        <form action="<?=$_SERVER['PHP_SELF']; ?>" method="get">
             <label for="salario">Salário (R$):</label>
             <input type="number" name="salario" id="idSalário"></label>
             <p>Considerando o salário mínimo de <strong> R$ 1.380,00 </strong></p>
