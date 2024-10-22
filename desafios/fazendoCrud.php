@@ -25,17 +25,17 @@
                 public $quantity;
             }
         function addFunction($quantityAdded) {
-        $addOne->quantity = $quantityAdded + 1;
-        return echo $addOne->quantity;
-
+            $addOne = new ProductsPatternForRooms();
+            $addOne->quantity = $quantityAdded;
         }
-        $addOne =  new ProductsPatternForRooms();
-        $addOne->quantity = $addOne->quantity + 1;
+
         ?>
         <form style="display: flex; flex-direction: row;" action="fazendoCrud.php" method="get">
             <span style="margin-right: 10px;display: flex; flex-direction: row; width: 200px;">Quantidade:
-                <?php echo $addOne->quantity; ?> </span>
+                <?php  ?> </span>
             <input style="margin-left: 10px; " type="button" name="addOne" value="Add 1 quantity" onclick=addFunction()>
+            <input type="button" name="addQuantity" id="addQuantity">
+            <input type="submit" value="Adicionar">
         </form>
         <a href="../desafios">
             <button type="button">
