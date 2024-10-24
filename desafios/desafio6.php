@@ -31,15 +31,9 @@
     </main>
     <section style="padding: 40px;">
         <h2>Estrutura da Divisão</h2>
-        <!-- Desafio, mostrar os valores de
-        1. divisao
-        2. Divisor
-        3. Quociente
-        4. Resto
--->
         <span style="font-size: 2em;">
             <?php 
-        if ( isset($_REQUEST["divisao"]) && isset($_REQUEST["divisor"])) {
+        if ( isset($_REQUEST["divisao"]) && isset($_REQUEST["divisor"]) && $_REQUEST["divisao"] > 0 && $_REQUEST["divisor"] > 0) {
     $divisao = $_REQUEST["divisao"] ?? 0;
     $divisor = $_REQUEST["divisor"] ?? 0;
     $resto = $divisao % $divisor ?? 0;
@@ -51,8 +45,10 @@
     echo "<br/>";
     
     echo "<span style='text-decoration: underline; padding-right: 80px;'>" . $resto . "</span>";
-    echo "<span>" .$quociente . " </span>";
-    } else {
+    echo "<span style='padding-left: 0px;'> " .$quociente . " </span>";
+    } else if($_REQUEST["divisao"] == 0 || $_REQUEST["divisor"] == 0) {
+        echo "Por favor, informe um valor maior que zero para os valores de divisão e divisor";
+    }else {
         echo "Por favor, informe os valores de divisao e divisor";
     }
         ?>

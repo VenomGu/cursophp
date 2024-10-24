@@ -29,7 +29,7 @@
         $valorConvertidoV2 = $valorEmReaisV2 / $cotacaoVenda;
         $padrao = numfmt_create('pt_BR', NumberFormatter::CURRENCY);
         
-        echo "O valor informado foi <strong> R$" . numfmt_format_currency($padrao, $valorEmReaisV2, 'BRL') . "</strong>";
+        echo "O valor informado foi <strong> " . numfmt_format_currency($padrao, $valorEmReaisV2, 'BRL') . "</strong>";
         echo "<br/>";
         echo "Seus <strong> " . numfmt_format_currency($padrao, $valorEmReaisV2, 'BRL') . " </strong>equivalem a <strong> " . numfmt_format_currency($padrao, $valorConvertidoV2, 'USD') ."</strong> Dolares";
         echo "<br/>";

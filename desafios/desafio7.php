@@ -15,9 +15,9 @@
         <h1>Informe o seu salário</h1>
         <form action="<?=$_SERVER['PHP_SELF']; ?>" method="get">
             <label for="salario">Salário (R$):</label>
-            <input type="number" name="salario" id="idSalário" placeholder="Exemplo: 5000,00" step="any"
-                required></label>
-            <p>Considerando o salário mínimo de <strong> R$ 1.380,00 </strong></p>
+            <input type="number" name="salario" id="idSalario" placeholder="Exemplo: 2.000,00" step="any">
+            </label>
+            <p>Considerando o salário mínimo de <strong> R$ 1.640,00 </strong></p>
             <input type="submit" value="Calcular">
 
             <a href="../desafios">
@@ -35,7 +35,7 @@
         $salario = (float)$_GET["salario"];
         $salariosMinimos = (float)0;
         $padrao = numfmt_create('pt_BR', NumberFormatter::CURRENCY);
-        $salarioMinimoAtual = (float)1380;
+        $salarioMinimoAtual = (float)1640;
         $salariosMinimos =  $salario / $salarioMinimoAtual;
         $resto = $salario % $salarioMinimoAtual;
         $restoCheck = $salario > $salarioMinimoAtual ? $resto : 0;
