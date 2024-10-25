@@ -42,6 +42,7 @@
             echo "O valor da raiz quadrada é " . $raizQuadrada;
             echo "<br/>";
             echo "O valor da raiz cubica é " . $raizCubica;
+            echo phpinfo();
             ?>
         </section>
     </main>
