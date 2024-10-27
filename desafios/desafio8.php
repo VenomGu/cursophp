@@ -12,9 +12,9 @@
 <body>
     <?php
             $numero = $_GET["numero"]?? 0;
-            $raizQuadrada = $numero * $numero;
-            $raizCubica = $numero * $numero * $numero;
-            //A raiz quandrada de 64 é 8. A raiz cubica de 64 é 4.
+            $raizQuadrada = sqrt($numero);
+            $raizCubica = $numero ** (1/3);
+
         ?>
     <main>
         <h2>Descubra a Raiz Quadrada e a Raiz Cúbica</h2>
@@ -36,13 +36,13 @@
         <section>
             <h2>Resultado Final</h2>
             <?php 
+            
             echo "Analisando o número ";
             echo "<ul> <strong> " . $numero ." </strong></ul>";
             echo "<br/>";
-            echo "O valor da raiz quadrada é " . $raizQuadrada;
+            echo "A raiz quadrada do número informado é <strong> $raizQuadrada </strong>";
             echo "<br/>";
-            echo "O valor da raiz cubica é " . $raizCubica;
-            echo phpinfo();
+            echo "A raiz cubica do número informado é <strong> $raizCubica </strong>";
             ?>
         </section>
     </main>
