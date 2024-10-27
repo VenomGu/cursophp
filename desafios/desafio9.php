@@ -11,16 +11,16 @@
 
 <body>
     <main>
-        <h1>Médias Aritiméticas</h1>
+        <h2>Médias Aritiméticas</h2>
         <form action="<?=$_SERVER['PHP_SELF']; ?>" method="get">
             <label for="valor1">1º Valor: </label>
-            <input type="number" name="valor1" id="idvalor1">
-            <label for="peso1">1º Peso: </label>
-            <input type="number" name="peso1" id="idpeso1">
+            <input type="number" name="valor1" id="idvalor1" placeholder=Exemplo:6 required>
+            <label for="peso1">1º Peso(%): </label>
+            <input type="number" name="peso1" id="idpeso1" placeholder=Exemplo:40% required>
             <label for="valor2">2º Valor: </label>
-            <input type="number" name="valor2" id="idvalor2">
-            <label for="peso2">2º Peso: </label>
-            <input type="number" name="peso2" id="idpeso2">
+            <input type="number" name="valor2" id="idvalor2" placeholder=Exemplo:8 required>
+            <label for="peso2">2º Peso(%): </label>
+            <input type="number" name="peso2" id="idpeso2" placeholder=Exemplo:60% required>
             <input type="submit" value="Calcular médias">
             <a href="../desafios">
                 <button type="button">
@@ -28,18 +28,22 @@
                     Opções
                 </button>
             </a>
-
         </form>
-        <?php 
-            echo "<h2>Analisando os valores :</h2>"; ;
+        <?php
+            $valor1 = $_GET["valor1"]?? 0;
+            $valor2 = $_GET["valor2"]?? 0;
+            $peso1 = $_GET["peso1"]?? 0;
+            $peso2 = $_GET["peso2"]?? 0;
+            $mediaSimples = ($valor1 + $valor2) / 2;
+            $mediaPonderada = ($valor1 * $peso1 + $valor2 * $peso2) / ($peso1 + $peso2);
             echo "<br/>";
-            echo "A <strong> Média Aritimética Simples </strong> entre os valores é igual a valor1 e valor2 ";
+            echo "<h2>Analisando os valores :</h2>";
             echo "<br/>";
-            echo "<p>A <strong> Média Aritimética Ponderada </strong>com pesos 1 e peso 2 é igual a médiaObtida </ul></p>";
+            echo "A <strong> Média Aritimética Simples </strong> entre os valores <strong> $valor1 e $valor2 </strong> é igual a <strong> $mediaSimples </strong>";
+            echo "<br/>";
+            echo "<p>A <strong> Média Aritimética Ponderada </strong>o peso 1 é <strong> $peso1% </strong> e o peso 2 é <strong> $peso2% </strong> então a média ponderada é <strong> $mediaPonderada </strong> </ul></p>";
             ?>
     </main>
-
-
 </body>
 
 </html>
