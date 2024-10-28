@@ -13,10 +13,10 @@
     <main>
         <h1>Calculando a sua idade</h1>
         <form action="<?=$_SERVER['PHP_SELF']; ?>" method="get">
-            <label for="Em que ano você nasceu?"></label>
-            <input type="number" name="ano" id="idano" value="0">
-            <label for="Quer saber sua idade em que ano? (Atualmente estamos em 2024)"></label>
-            <input type="number" name="data" id="iddata">
+            <label for="ano">Quando você nasceu?</label>
+            <input type="date" name="nascimento" id="idnascimento" required>
+            <label for="data"> Quer saber quantos anos terá na data abaixo?</label>
+            <input type="date" name="data" id="iddata" required>
             <input type="submit" value="Qual será minha idade?">
             <a href="../desafios">
                 <button type="button">
@@ -30,7 +30,20 @@
     <section>
         <h2>Resultado </h2>
         <?php
-        echo "Quem nasceu em ANO vai ter IDADE em ANOPASSADO.";
+        $nascimento = $_REQUEST["nascimento"] ?? 0;
+        $data = $_REQUEST["data"] ?? 0;
+        $idade = date("Y", strtotime($data)) - date("Y", strtotime($nascimento));
+        $dias = date("d", strtotime($data)) - date("d", strtotime($nascimento));
+        $meses = date("m", strtotime($data)) - date("m", strtotime($nascimento));
+        if ($nascimento && $data && $nascimento < $data) {
+        echo "Quem nasceu em <strong>". date( " d/m/Y", strtotime($nascimento)) ." </strong> vai ter <strong>" .$idade . "</strong> anos, <strong>" . abs($dias) . "</strong> dias e <strong>" . abs($meses) . "</strong> mês de idade na data <strong>". date("d/m/Y", strtotime($data))."</strong>.";
+        } elseif ($nascimento > $data) {
+            echo "A data de nascimento deve ser <strong> menor </strong> que a data desejada.";
+        }
+        else {
+            echo "Preencha todos os campos, por favor.";    
+        }
+
         ?>
     </section>
 

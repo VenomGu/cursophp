@@ -37,9 +37,9 @@
             $mediaSimples = ($valor1 + $valor2) / 2;
             $mediaPonderada = ($valor1 * $peso1 + $valor2 * $peso2) / ($peso1 + $peso2);
             echo "<br/>";
-            echo "<h2>Analisando os valores :</h2>";
+            echo "<h3>Analisando os valores :</h3>";
             echo "<br/>";
-            echo "A <strong> Média Aritimética Simples </strong> entre os valores <strong> $valor1 e $valor2 </strong> é igual a <strong> $mediaSimples </strong>";
+            echo " A <strong> Média Aritimética Simples </strong> entre os valores <strong> $valor1 e $valor2 </strong> é igual a <strong> $mediaSimples </strong>";
             echo "<br/>";
             echo "<p>A <strong> Média Aritimética Ponderada </strong>o peso 1 é <strong> $peso1% </strong> e o peso 2 é <strong> $peso2% </strong> então a média ponderada é <strong> $mediaPonderada </strong> </ul></p>";
             ?>
