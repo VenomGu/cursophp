@@ -13,12 +13,12 @@
     <main>
         <h1>Reajustador de preços</h1>
         <form action="<?=$_SERVER['PHP_SELF']; ?>" method="get">
-            <label for="reajuste">Preço do Produto (R$):</label>
-            <input type="number" name="reajuste" id="idreajuste" value="0">
-            <label for="percentual">Qual será o percentual do reajuste? (%)</label>
-            <!-- Colocar barra deslizante para o percentual -->
-            <input type="submit" value="Reajustar">
-
+            <label for="valor">Preço do Produto (R$):</label>
+            <input type="number" name="valor" id="idvalor" step="0.01" placeholder="Exemplo: 89,90" required>
+            <label for="reaj">Qual será o reaj do reajuste? (<strong><span id="p">50</span>%</strong>)
+            </label>
+            <input min="0" max="100" type="range" name="reaj" id="reaj" step="1" oninput="mudarValor()">
+            <input type="submit" value="Reajustar" onclick="mudarValor()">
             <a href="../desafios">
                 <button type="button">
                     <i class="fa fa-long-arrow-left"></i>
@@ -32,9 +32,31 @@
             Resultado do reajuste
         </h2>
         <?php 
-        echo "O produto que custava VALOR, com o PORCENTAGEM de aumento vai passar a custar R$\ REAIS a partir de agora.";
+        $padrao = numfmt_create('pt_BR', NumberFormatter::CURRENCY);
+        $valor = isset($_REQUEST["valor"]) ? (float)$_REQUEST["valor"] : (float)(0) ?? 0;
+        $reaj = isset($_REQUEST["reaj"]) ? (int)$_REQUEST["reaj"] : (int)(50) ?? 0;
+        $reajuste = $valor * ($reaj / 100) ?? 0;
+        $valorFinal = $valor + $reajuste ?? 0;
+        if ($valor == 0) {
+            isset($_REQUEST["reaj"]) == 0;
+            isset($_REQUEST["valor"]) == 0;
+            echo "Por favor, informe um valor e reajuste a barra para realizar o reajuste";
+        } else {
+        echo "</br>";
+        echo "Valor inicial ". numfmt_format_currency($padrao, $valor, 'BRL');
+        echo "</br>";
+        echo "Percentual de reajuste ". numfmt_format_currency($padrao, $reajuste, 'BRL');
+        echo "</br>";
+        echo "Com o reajuste de ". $reaj ."%, o valor final é ". numfmt_format_currency($padrao, $valorFinal, 'BRL');
+        }
         ?>
     </section>
+    <script>
+    //Método para mudar o valor do reajuste usando JavaScript
+    function mudarValor() {
+        p.innerText = reaj.value;
+    }
+    </script>
 
 </body>
 

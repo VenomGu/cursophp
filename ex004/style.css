@@ -155,7 +155,7 @@ form label {
   margin-bottom: 0px;
   border-radius: 5px;
 }
-
+input[type="range"],
 input[type="text"],
 [type="number"],
 select,
@@ -165,7 +165,6 @@ input[type="datetime"],
 input[type="email"],
 input[type="month"],
 input[type="password"],
-input[type="range"],
 input[type="tel"],
 input[type="time"],
 input[type="week"] {
@@ -177,6 +176,11 @@ input[type="week"] {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+}
+input[name="reaj"] {
+  padding: 0px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 input[type="submit"] {
