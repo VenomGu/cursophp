@@ -10,12 +10,11 @@
 </head>
 
 <body>
-
     <main>
         <h1>Calculadora de Tempo</h1>
         <form action="<?=$_SERVER['PHP_SELF']; ?>" method="get">
-            <label for="segundos">Qaul é o total de segundos?</label>
-            <input type="number" step="any" name="segundos" id="idsegundos">
+            <label for="segundos">Qual é o total de segundos?</label>
+            <input type="number" step="any" name="segundos" id="idsegundos" placeholder="Exemplo: 120" min=0 required>
             <input type="submit" value="Calcular">
 
             <a href="../desafios">
@@ -29,15 +28,37 @@
 
     <section>
         <h2>Totalizando tudo</h2>
-        <?php 
-    echo "Analisando o valor que você digitou, X SEGUNDOS equivalem a um total de: <ol> X SEMANAS <br/> X DIAS <br/> X HORAS <br/> X MINUTOS <br/> X SEGUNDOS </ol>";
-    // É divisão e resto de divisão
+        <?php
+        $secondsPassed = $_GET["segundos"] ?? 0;
+        $segundos = $_GET["segundos"] ?? 0;
 
+        $weeks = floor($segundos / 604800);
+        $segundos -= $weeks * 604800;
+
+        $days = floor($segundos / 86400);
+        $segundos -= $days * 86400;
+
+        $hours = floor($segundos / 3600);
+        $segundos -= $hours * 3600;
+        
+        $minutes = floor($segundos / 60);
+        $segundos -= $minutes * 60;
+        
+        $seconds = $segundos % 60;
+    if (isset($_REQUEST["segundos"]) && $_REQUEST["segundos"] > 0) {
+    echo "</br>";
+    echo "Analisando o valor que você digitou, $secondsPassed equivalem a um total de: <ol> <br/> $weeks SEMANAS <br/> $days DIAS <br/> $hours HORAS <br/> $minutes MINUTOS <br/> $seconds SEGUNDOS </ol>"; 
+    echo "</br>";
+    } else {
+    echo "Por favor, informe o total de segundos para realizar a analise";
+    echo "</br>";
+    echo "Essa análise mostra quantos dias, horas, minutos e segundos o valor que você digitou equivale.";
+    echo "</br>";
+    echo "</br>";
+    echo "<strong>**Um minuto tem 60 segundos, um hora tem 3600 segundos, um dia tem 86400 segundos, uma semana tem 604800 segundos, um ano tem 31536000 segundos. **</strong>";
+    }
     ?>
-
     </section>
-
-
 </body>
 
 </html>
