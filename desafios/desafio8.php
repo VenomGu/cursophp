@@ -22,7 +22,7 @@
 
         <form action="<?=$_SERVER['PHP_SELF']; ?>" method="get">
             <label for="numero">Número:</label>
-            <input type="number" name="numero" id="idnumero" placeholder="Ex: 64" step="any" required>
+            <input type="number" name="numero" id="idnumero" placeholder="Ex: 64" step="any" min="1" required>
             <input type="submit" value="Calcular Raízes">
 
             <a href="../desafios">

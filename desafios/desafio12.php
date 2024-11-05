@@ -26,7 +26,7 @@
         </form>
     </main>
 
-    <section>
+    <section style="margin: 0px;">
         <h2>Totalizando tudo</h2>
         <?php
         $secondsPassed = $_GET["segundos"] ?? 0;
@@ -46,16 +46,11 @@
         
         $seconds = $segundos % 60;
     if (isset($_REQUEST["segundos"]) && $_REQUEST["segundos"] > 0) {
-    echo "</br>";
-    echo "Analisando o valor que você digitou, $secondsPassed equivalem a um total de: <ol> <br/> $weeks SEMANAS <br/> $days DIAS <br/> $hours HORAS <br/> $minutes MINUTOS <br/> $seconds SEGUNDOS </ol>"; 
+    echo "Analisando o valor que você digitou,<strong> $secondsPassed</strong> equivalem a um total de: <ol style='margin: 0'> <br/> $weeks SEMANAS <br/> $days DIAS <br/> $hours HORAS <br/> $minutes MINUTOS <br/> $seconds SEGUNDOS </ol>"; 
     echo "</br>";
     } else {
-    echo "Por favor, informe o total de segundos para realizar a analise";
-    echo "</br>";
-    echo "Essa análise mostra quantos dias, horas, minutos e segundos o valor que você digitou equivale.";
-    echo "</br>";
-    echo "</br>";
-    echo "<strong>**Um minuto tem 60 segundos, um hora tem 3600 segundos, um dia tem 86400 segundos, uma semana tem 604800 segundos, um ano tem 31536000 segundos. **</strong>";
+
+    echo "<strong><h5 style='margin: 0'>**Um minuto tem 60 segundos, um hora tem 3600 segundos</br> um dia tem 86400 segundos uma semana tem 604800 segundos</br> um ano tem 31536000 segundos. ** </h5></strong>";
     }
     ?>
     </section>

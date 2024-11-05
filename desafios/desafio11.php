@@ -40,14 +40,13 @@
         if ($valor == 0) {
             isset($_REQUEST["reaj"]) == 0;
             isset($_REQUEST["valor"]) == 0;
-            echo "Por favor, informe um valor e reajuste a barra para realizar o reajuste";
+            echo "Por favor, informe um valor e </br> reajuste a barra para realizar o reajuste";
         } else {
+        echo "Valor inicial <strong>". numfmt_format_currency($padrao, $valor, 'BRL'). "</strong>";
         echo "</br>";
-        echo "Valor inicial ". numfmt_format_currency($padrao, $valor, 'BRL');
+        echo "Percentual de reajuste <strong>". numfmt_format_currency($padrao, $reajuste, 'BRL'). "</strong>";
         echo "</br>";
-        echo "Percentual de reajuste ". numfmt_format_currency($padrao, $reajuste, 'BRL');
-        echo "</br>";
-        echo "Com o reajuste de ". $reaj ."%, o valor final é ". numfmt_format_currency($padrao, $valorFinal, 'BRL');
+        echo "Com o reajuste de <strong>". $reaj ."%</strong>, o valor final é <strong>". numfmt_format_currency($padrao, $valorFinal, 'BRL')."</strong>";
         }
         ?>
     </section>

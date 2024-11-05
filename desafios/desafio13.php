@@ -26,13 +26,13 @@
                     $nota50 = (int)($valor % 100 / 50);
                     $nota10 = (int)($valor % 100 % 50 / 10);
                     $nota5 = (int)($valor % 100 % 50 % 10 / 5);
-                    $alerta = "O número de notas ser:" ?? "";
+                    $alerta = "O número de notas vai ser:" ?? "";
                 } else {
                     $nota100 = 0;
                     $nota50 = 0;
                     $nota10 = 0;
                     $nota5 = 0;
-                    $alerta = "**Não temos essa nota no caixa**" ?? "";
+                    $alerta = "<p style='color: red; margin:0px;'>**Não temos essa nota no caixa**</>" ?? "";
                 }
         }
 ?>

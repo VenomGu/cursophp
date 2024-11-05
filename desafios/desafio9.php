@@ -14,13 +14,13 @@
         <h2>Médias Aritiméticas</h2>
         <form action="<?=$_SERVER['PHP_SELF']; ?>" method="get">
             <label for="valor1">1º Valor: </label>
-            <input type="number" name="valor1" id="idvalor1" placeholder=Exemplo:6 required>
+            <input type="number" name="valor1" id="idvalor1" min="1" placeholder=Exemplo:6 required>
             <label for="peso1">1º Peso(%): </label>
-            <input type="number" name="peso1" id="idpeso1" placeholder=Exemplo:40% required>
+            <input type="number" name="peso1" id="idpeso1" min="1" placeholder=Exemplo:40% required>
             <label for="valor2">2º Valor: </label>
-            <input type="number" name="valor2" id="idvalor2" placeholder=Exemplo:8 required>
+            <input type="number" name="valor2" id="idvalor2" min="1" placeholder=Exemplo:8 required>
             <label for="peso2">2º Peso(%): </label>
-            <input type="number" name="peso2" id="idpeso2" placeholder=Exemplo:60% required>
+            <input type="number" name="peso2" id="idpeso2" min="1" placeholder=Exemplo:60% required>
             <input type="submit" value="Calcular médias">
             <a href="../desafios">
                 <button type="button">
@@ -30,18 +30,28 @@
             </a>
         </form>
         <?php
+        if (isset($_GET["valor1"]) && isset($_GET["valor2"]) && isset($_GET["peso1"]) && isset($_GET["peso2"])) {
             $valor1 = $_GET["valor1"]?? 0;
             $valor2 = $_GET["valor2"]?? 0;
             $peso1 = $_GET["peso1"]?? 0;
             $peso2 = $_GET["peso2"]?? 0;
-            $mediaSimples = ($valor1 + $valor2) / 2;
-            $mediaPonderada = ($valor1 * $peso1 + $valor2 * $peso2) / ($peso1 + $peso2);
+            $mediaSimples = ($valor1 + $valor2) / 2 ?? 0;
+            $mediaPonderada = ($valor1 * $peso1 + $valor2 * $peso2) / ($peso1 + $peso2) ?? 0;
             echo "<br/>";
             echo "<h3>Analisando os valores :</h3>";
             echo "<br/>";
             echo " A <strong> Média Aritimética Simples </strong> entre os valores <strong> $valor1 e $valor2 </strong> é igual a <strong> $mediaSimples </strong>";
             echo "<br/>";
             echo "<p>A <strong> Média Aritimética Ponderada </strong>o peso 1 é <strong> $peso1% </strong> e o peso 2 é <strong> $peso2% </strong> então a média ponderada é <strong> $mediaPonderada </strong> </ul></p>";
+        } else {
+            echo "Os valores serão analisados mostrarão a média aritmética <strong> simples e ponderada </strong>";
+            echo "<br/>";
+            echo "<br/>";
+            echo "A <strong> média aritmética simples </strong> é uma medida de tendência central que consiste na divisão da soma de todos os valores de um conjunto de dados pelo número de dados.";
+            echo "<br/>";
+            echo "A <strong> média aritmética ponderada </strong> é uma medida de tendência central que consiste na divisão da soma ponderada de todos os valores de um conjunto de dados pelo número de dados.";
+        }
+
             ?>
     </main>
 </body>

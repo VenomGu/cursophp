@@ -15,7 +15,8 @@
         <h1>Informe o seu salário</h1>
         <form action="<?=$_SERVER['PHP_SELF']; ?>" method="get">
             <label for="salario">Salário (R$):</label>
-            <input type="number" name="salario" id="idSalario" placeholder="Exemplo: 2.000,00" step="any">
+            <input type="number" name="salario" id="idSalario" placeholder="Exemplo: 2.000,00" step="any" min="0"
+                required>
             </label>
             <p>Considerando o salário mínimo de <strong> R$ 1.640,00 </strong></p>
             <input type="submit" value="Calcular">
@@ -39,9 +40,9 @@
         $salariosMinimos =  $salario / $salarioMinimoAtual;
         $resto = $salario % $salarioMinimoAtual;
         $restoCheck = $salario > $salarioMinimoAtual ? $resto : 0;
-        echo "Quem recebe um salário de " . numfmt_format_currency($padrao, $salario, 'BRL') . " ganha " . (int)$salariosMinimos . " por  salários mínimos. <br/> O valor quebrado é de " . numfmt_format_currency($padrao, $restoCheck, 'BRL');
+        echo "Quem recebe um salário de <strong>" . numfmt_format_currency($padrao, $salario, 'BRL') . "</strong> ganha<strong> " . (int)$salariosMinimos . " </strong> por  salários mínimos. <br/> O valor quebrado é de <strong>" . numfmt_format_currency($padrao, $resto, 'BRL') . "</strong>";
         } else {
-            echo "informe um valor";
+            echo "O valor informado será análisado e mostrará quantos <strong>salários minimos </strong> dá e o valor de <strong>quebra </strong>.";
         }
         ?>
         </section>
