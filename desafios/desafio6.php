@@ -20,6 +20,11 @@
             <input type="number" name="divisor" id="iddivisor" step="any" min="1" required>
 
             <input type="submit" value="Analisar">
+            <a href="../desafios/desafio6.php">
+                <button type="button">
+                    Limpar
+                </button>
+            </a>
             <a href="../desafios">
                 <button type="button">
                     <i class="fa fa-long-arrow-left"></i>
@@ -53,8 +58,6 @@
     echo "<span style='text-decoration: underline; padding-right: 80px;font-size: 2em;'> resto </span>";
     echo "<span style='padding-left: 0px;font-size: 2em;'> quociente </span>";
 
-    }else {
-        echo "Por favor,<br/> informe os valores de divisao e <br/> divisor, os valores devem <br/> ser positivos";
     }
         ?>
         </span>
