@@ -40,7 +40,7 @@
             <?php 
         if (isset($_REQUEST["divisao"]) && isset($_REQUEST["divisor"]) && $_REQUEST["divisao"] > 0 && $_REQUEST["divisor"] > 0) {
     $divisao = abs($_REQUEST["divisao"]) ?? 0;
-    $divisor = abs($_REQUEST["divisor"]) ?? 0;
+    $divisor = abs($_REQUEST["divisor"]) ?? 1;
     $resto = $divisao % $divisor ?? 0;
     $quociente = $divisao / $divisor ?? 0;
     echo "<span style='padding-right: 30px; font-size: 2em;'>" . $divisao . "</span>";
@@ -61,6 +61,26 @@
     }
         ?>
         </span>
+        <!--Solução feita no curso pelo Guanabara
+        <table class="divisao">
+            <tr>
+                <td>
+                    <?= $divisao ?>
+                </td>
+                <td>
+                    <?= $divisor ?>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <?= $resto ?>
+                </td>
+                <td>
+                    <?= $quociente ?>
+                </td>
+            </tr>
+        </table>
+-->
 
     </section>
 
