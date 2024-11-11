@@ -11,7 +11,7 @@
 
 <body>
     <?php
-            $numero = $_GET["numero"]?? 0;
+            $numero = $_GET["numero"]?? 1;
             $raizQuadrada = sqrt($numero);
             $raizCubica = $numero ** (1/3);
 
@@ -40,9 +40,9 @@
             echo "Analisando o número ";
             echo "<ul> <strong> " . $numero ." </strong></ul>";
             echo "<br/>";
-            echo "A raiz quadrada do número informado é <strong> $raizQuadrada </strong>";
+            echo "<ul><li>A raiz <strong>quadrada</strong> do número informado é <strong> ".number_format($raizQuadrada, 3, ",", ".") ." </strong></li>";
             echo "<br/>";
-            echo "A raiz cubica do número informado é <strong> $raizCubica </strong>";
+            echo "<li>A raiz <strong>cubica</strong> do número informado é <strong>". number_format($raizCubica, 3 , ",", ".") ."</strong> </li></ul>";
             ?>
         </section>
     </main>
