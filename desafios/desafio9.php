@@ -31,18 +31,18 @@
         </form>
         <?php
         if (isset($_GET["valor1"]) && isset($_GET["valor2"]) && isset($_GET["peso1"]) && isset($_GET["peso2"])) {
-            $valor1 = $_GET["valor1"]?? 0;
-            $valor2 = $_GET["valor2"]?? 0;
-            $peso1 = $_GET["peso1"]?? 0;
-            $peso2 = $_GET["peso2"]?? 0;
-            $mediaSimples = ($valor1 + $valor2) / 2 ?? 0;
-            $mediaPonderada = ($valor1 * $peso1 + $valor2 * $peso2) / ($peso1 + $peso2) ?? 0;
+            $valor1 = $_GET["valor1"]?? 1;
+            $valor2 = $_GET["valor2"]?? 1;
+            $peso1 = $_GET["peso1"]?? 1;
+            $peso2 = $_GET["peso2"]?? 1;
+            $mediaSimples = ($valor1 + $valor2) / 2 ?? 1;
+            $mediaPonderada = ($valor1 * $peso1 + $valor2 * $peso2) / ($peso1 + $peso2) ?? 1;
             echo "<br/>";
             echo "<h3>Analisando os valores :</h3>";
             echo "<br/>";
             echo " A <strong> Média Aritimética Simples </strong> entre os valores <strong> $valor1 e $valor2 </strong> é igual a <strong> $mediaSimples </strong>";
             echo "<br/>";
-            echo "<p>A <strong> Média Aritimética Ponderada </strong>o peso 1 é <strong> $peso1% </strong> e o peso 2 é <strong> $peso2% </strong> então a média ponderada é <strong> $mediaPonderada </strong> </ul></p>";
+            echo "<p>A <strong> Média Aritimética Ponderada </strong>o peso 1 é <strong> $peso1% </strong> e o peso 2 é <strong> $peso2% </strong> então a média ponderada é <strong>".number_format($mediaPonderada, 2 , ",", ".") ."</strong> </ul></p>";
         } else {
             echo "Os valores serão analisados mostrarão a média aritmética <strong> simples e ponderada </strong>";
             echo "<br/>";
