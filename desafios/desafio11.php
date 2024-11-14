@@ -35,7 +35,7 @@
         $padrao = numfmt_create('pt_BR', NumberFormatter::CURRENCY);
         $valor = isset($_REQUEST["valor"]) ? (float)$_REQUEST["valor"] : (float)(0) ?? 0;
         $reaj = isset($_REQUEST["reaj"]) ? (int)$_REQUEST["reaj"] : (int)(50) ?? 0;
-        $reajuste = $valor * ($reaj / 100) ?? 0;
+        $reajuste = ($valor * $reaj) / 100 ?? 0;
         $valorFinal = $valor + $reajuste ?? 0;
         if ($valor == 0) {
             isset($_REQUEST["reaj"]) == 0;
