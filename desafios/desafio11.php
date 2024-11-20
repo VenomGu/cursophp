@@ -52,6 +52,8 @@
     </section>
     <script>
     //Método para mudar o valor do reajuste usando JavaScript
+    mudarValor();
+
     function mudarValor() {
         p.innerText = reaj.value;
     }

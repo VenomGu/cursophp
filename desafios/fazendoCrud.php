@@ -11,36 +11,33 @@
 
 <main>
     <section>
-        <h1>
-            Fazendo CRUD de produtos
-        </h1>
-        <H2>Protudos do Hotel</H2>
-        <?php 
-        echo "Lista de Produtos </br>";
-        
-            class ProductsPatternForRooms {
-              // Properties
-                public $id;
-                public $name;
-                public $quantity;
-            }
-        function addFunction($quantityAdded) {
-            $addOne = new ProductsPatternForRooms();
-            $addOne->quantity = $quantityAdded;
-        }
+        <h1>Fazendo CRUD</h1>
+        <?php
+    try {
+        $pdo = new PDO('mysql:host=localhost;dbname=hotel', 'root', 'CRUD');
+      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Enable error handling
 
-        ?>
+      // Insert
+        if (isset($_GET["nome"]) && isset($_GET["email"])) {
+        $sql = $pdo->prepare("INSERT INTO quarto (nome, email) VALUES (:nome, :email)");
+        $sql->execute(array(":nome" => $_GET["nome"], ":email" => $_GET["email"]));
+        echo "Quarto cadastrado com sucesso!";
+        }
+    } catch (PDOException $e) {
+      echo "Erro ao conectar ou cadastrar quarto: " . $e->getMessage(); // Display error message
+    }
+    ?>
+
         <form style="display: flex; flex-direction: row;" action="fazendoCrud.php" method="get">
-            <span style="margin-right: 10px;display: flex; flex-direction: row; width: 200px;">Quantidade:
-                <?php  ?> </span>
-            <input style="margin-left: 10px; " type="button" name="addOne" value="Add 1 quantity" onclick=addFunction()>
-            <input type="button" name="addQuantity" id="addQuantity">
-            <input type="submit" value="Adicionar">
+            <span style="margin-right: 10px; display: flex; flex-direction: row; width: 200px;">Adicionar Quarto</span>
+            <input type="text" name="nome" placeholder="Nome">
+            <input type="text" name="email" placeholder="Email">
+            <input type="submit" value="Enviar">
         </form>
+
         <a href="../desafios">
             <button type="button">
-                <i class="fa fa-long-arrow-left"></i>
-                Opções
+                <i class="fa fa-long-arrow-left"></i> Opções
             </button>
         </a>
     </section>

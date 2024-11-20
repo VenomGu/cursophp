@@ -46,7 +46,7 @@
         
         $seconds = $segundos % 60;
     if (isset($_REQUEST["segundos"]) && $_REQUEST["segundos"] > 0) {
-    echo "Analisando o valor que você digitou,<strong> $secondsPassed</strong> equivalem a um total de: <ol style='margin: 0'> <br/> $weeks SEMANAS <br/> $days DIAS <br/> $hours HORAS <br/> $minutes MINUTOS <br/> $seconds SEGUNDOS </ol>"; 
+    echo "<li>Analisando o valor que você digitou, <strong>". number_format($secondsPassed, 0, ",", ".") ."</strong> equivalem a um total de: <ol style='margin: 0'> <br/> $weeks SEMANAS <br/> $days DIAS <br/> $hours HORAS <br/> $minutes MINUTOS <br/> $seconds SEGUNDOS </ol></li>";
     echo "</br>";
     } else {
 
